@@ -1,4 +1,4 @@
-package com.rebel.alliance.quasarfireoperation.entity;
+package com.rebel.alliance.quasarfireoperation.entity.controller;
 
 import javax.validation.constraints.NotBlank;
 
@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RequestSatellite {
+public class RequestSatelliteTopSecret {
 	
 	@NotBlank(message = "Distancia del satelite es obligatorio")
 	private float distance;
