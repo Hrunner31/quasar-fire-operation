@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteTopSecretSplit;
 import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
-import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
 import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.service.ISpaceMissionService;
 import com.rebel.alliance.quasarfireoperation.service.facade.impl.SecretSpaceMissionService;
@@ -33,8 +33,7 @@ public class SpaceMissionServiceImpl implements ISpaceMissionService{
 	}
 
 	@Override
-	public void saveInformationSatellite(Satellite satellite, String satelliteName) {
-		// TODO Auto-generated method stub
-		
+	public void saveInformationSatellite( RequestSatelliteTopSecretSplit satellite, String satelliteName) {
+		this.secretSpaceMissionService.saveSatellite(satellite.convertToEntityService(satelliteName));
 	}
 }

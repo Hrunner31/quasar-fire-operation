@@ -10,6 +10,7 @@ import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.exception.LocationException;
 import com.rebel.alliance.quasarfireoperation.exception.MessageException;
 import com.rebel.alliance.quasarfireoperation.exception.SatelliteException;
+import com.rebel.alliance.quasarfireoperation.repository.SatelliteRepository;
 import com.rebel.alliance.quasarfireoperation.service.facade.ISecretSpaceMissionService;
 import com.rebel.alliance.quasarfireoperation.utilities.Constant;
 import com.rebel.alliance.quasarfireoperation.utilities.Utility;
@@ -21,15 +22,19 @@ public class SecretSpaceMissionService implements ISecretSpaceMissionService {
 
 	MessageService messageService;
 	
+	SatelliteRepository satelliteRepository;
+	
 	Utility utilities;
 
 	@Autowired
 	public SecretSpaceMissionService(
 			LocationService locationService, 
 			MessageService messageService,
+			SatelliteRepository satelliteRepository,
 			Utility utilities) {
 		this.locationService = locationService;
 		this.messageService = messageService;
+		this.satelliteRepository = satelliteRepository;
 		this.utilities = utilities;
 	}
 
@@ -61,8 +66,7 @@ public class SecretSpaceMissionService implements ISecretSpaceMissionService {
 
 	@Override
 	public void saveSatellite(Satellite satellite) {
-		// TODO Auto-generated method stub
-
+      this.satelliteRepository.save(satellite);
 	}
 
 }

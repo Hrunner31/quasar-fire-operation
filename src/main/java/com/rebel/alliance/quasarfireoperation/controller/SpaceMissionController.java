@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteTopSecretSplit;
 import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
-import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
 import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.service.impl.SpaceMissionServiceImpl;
 
@@ -40,7 +40,7 @@ public class SpaceMissionController {
 
 	@PostMapping("/topsecret_split/{satellite}")
 	public ResponseEntity<?> topSecretSplit(
-			@Valid @RequestBody Satellite satellite,
+			@Valid @RequestBody RequestSatelliteTopSecretSplit satellite,
 			@PathVariable(value = "satellite") @NotBlank(message = "Nombre del satelite es obligatorio") String satelliteName) {
 		this.spaceMissionService.saveInformationSatellite(satellite, satelliteName);
 		return (ResponseEntity<?>) ResponseEntity.status(HttpStatus.OK);
