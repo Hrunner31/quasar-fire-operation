@@ -3,10 +3,10 @@ package com.rebel.alliance.quasarfireoperation.service.facade.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rebel.alliance.quasarfireoperation.entity.Position;
-import com.rebel.alliance.quasarfireoperation.entity.Satellite;
-import com.rebel.alliance.quasarfireoperation.entity.SatelliteList;
-import com.rebel.alliance.quasarfireoperation.entity.Ship;
+import com.rebel.alliance.quasarfireoperation.entity.service.Position;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
+import com.rebel.alliance.quasarfireoperation.entity.service.SatelliteList;
+import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.exception.LocationException;
 import com.rebel.alliance.quasarfireoperation.exception.MessageException;
 import com.rebel.alliance.quasarfireoperation.exception.SatelliteException;

@@ -1,12 +1,13 @@
 package com.rebel.alliance.quasarfireoperation.service;
 
-import com.rebel.alliance.quasarfireoperation.entity.Satellite;
-import com.rebel.alliance.quasarfireoperation.entity.SatelliteList;
-import com.rebel.alliance.quasarfireoperation.entity.Ship;
+import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
+import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 
 public interface ISpaceMissionService {
 	
-	public Ship getInformationShip(SatelliteList satelliteList);
+	public ResponseShipTopSecret getInformationShip(RequestSatelliteListTopSecret satelliteList);
 	
 	public Ship getInformationShip();
 	

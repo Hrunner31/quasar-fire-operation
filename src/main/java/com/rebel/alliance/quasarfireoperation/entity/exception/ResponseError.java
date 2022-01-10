@@ -1,4 +1,4 @@
-package com.rebel.alliance.quasarfireoperation.exception.entity;
+package com.rebel.alliance.quasarfireoperation.entity.exception;
 
 import java.io.Serializable;
 

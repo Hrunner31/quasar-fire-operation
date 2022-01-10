@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import com.rebel.alliance.quasarfireoperation.exception.entity.ResponseError;
+import com.rebel.alliance.quasarfireoperation.entity.exception.ResponseError;
 import com.rebel.alliance.quasarfireoperation.utilities.Constant;
 import com.rebel.alliance.quasarfireoperation.utilities.Utility;
 

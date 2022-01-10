@@ -3,9 +3,10 @@ package com.rebel.alliance.quasarfireoperation.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rebel.alliance.quasarfireoperation.entity.Satellite;
-import com.rebel.alliance.quasarfireoperation.entity.SatelliteList;
-import com.rebel.alliance.quasarfireoperation.entity.Ship;
+import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
+import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.service.ISpaceMissionService;
 import com.rebel.alliance.quasarfireoperation.service.facade.impl.SecretSpaceMissionService;
 
@@ -20,9 +21,9 @@ public class SpaceMissionServiceImpl implements ISpaceMissionService{
 	}
 
 	@Override
-	public Ship getInformationShip(SatelliteList satelliteList) {
-		Ship response = this.secretSpaceMissionService.getShip(satelliteList);
-		return response;
+	public ResponseShipTopSecret getInformationShip(RequestSatelliteListTopSecret satelliteList) {
+		Ship response = this.secretSpaceMissionService.getShip(satelliteList.convertToEntityService());
+		return response.convertToEntityController();
 	}
 
 	@Override

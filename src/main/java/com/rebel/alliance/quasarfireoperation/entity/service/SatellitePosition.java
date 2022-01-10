@@ -1,4 +1,4 @@
-package com.rebel.alliance.quasarfireoperation.entity;
+package com.rebel.alliance.quasarfireoperation.entity.service;
 
 import java.io.Serializable;
 import java.util.List;

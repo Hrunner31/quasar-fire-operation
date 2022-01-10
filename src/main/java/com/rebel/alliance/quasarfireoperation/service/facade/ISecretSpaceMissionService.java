@@ -1,8 +1,8 @@
 package com.rebel.alliance.quasarfireoperation.service.facade;
 
-import com.rebel.alliance.quasarfireoperation.entity.Satellite;
-import com.rebel.alliance.quasarfireoperation.entity.SatelliteList;
-import com.rebel.alliance.quasarfireoperation.entity.Ship;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
+import com.rebel.alliance.quasarfireoperation.entity.service.SatelliteList;
+import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 
 public interface ISecretSpaceMissionService {
 	

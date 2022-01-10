@@ -34,6 +34,4 @@ public class Utility {
 		}
 		return pointsDouble;
 	}
-	
-	
 }

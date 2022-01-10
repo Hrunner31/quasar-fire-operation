@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rebel.alliance.quasarfireoperation.entity.Satellite;
-import com.rebel.alliance.quasarfireoperation.entity.SatelliteList;
-import com.rebel.alliance.quasarfireoperation.entity.Ship;
+import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
+import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.service.impl.SpaceMissionServiceImpl;
 
 @RestController
@@ -32,8 +33,8 @@ public class SpaceMissionController {
 	}
 
 	@PostMapping("/topsecret/")
-	public ResponseEntity<Ship> topSecret(@Valid @RequestBody SatelliteList satelliteList) {
-		Ship response = this.spaceMissionService.getInformationShip(satelliteList);
+	public ResponseEntity<ResponseShipTopSecret> topSecret(@Valid @RequestBody RequestSatelliteListTopSecret satelliteList) {
+		ResponseShipTopSecret response = this.spaceMissionService.getInformationShip(satelliteList);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
