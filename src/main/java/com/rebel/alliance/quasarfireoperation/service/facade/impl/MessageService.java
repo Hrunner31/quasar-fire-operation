@@ -64,7 +64,11 @@ public class MessageService implements IMessageService {
         	row = 0;
 			while (row < 3) {
 				if (matrixMsg[row][column] != "") {
-					mensaje.append(matrixMsg[row][column]).append(" ");
+					if (column == (sizeColumna - 1)) {
+						mensaje.append(matrixMsg[row][column]);
+					} else {
+						mensaje.append(matrixMsg[row][column]).append(" ");
+					}
 					break;
 				}
 				row++;

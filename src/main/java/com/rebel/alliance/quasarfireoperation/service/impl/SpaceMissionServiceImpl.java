@@ -27,9 +27,9 @@ public class SpaceMissionServiceImpl implements ISpaceMissionService{
 	}
 
 	@Override
-	public Ship getInformationShip() {
+	public ResponseShipTopSecret getInformationShip() {
 		Ship response = this.secretSpaceMissionService.getShip(null);
-		return response;
+		return response.convertToEntityController();
 	}
 
 	@Override

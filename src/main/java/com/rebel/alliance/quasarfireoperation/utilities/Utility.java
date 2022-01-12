@@ -4,17 +4,25 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+
+import com.google.gson.Gson;
+import com.rebel.alliance.quasarfireoperation.entity.service.SatellitePosition;
 
 @Component
 public class Utility {
 	
+	private Environment environment;
+	
+	public Utility(Environment environment) {
+		this.environment = environment;
+	}
+	
 	public String getStackError(Exception e) {
-		String response = e.getMessage() + " - ";
 		StringWriter sw = new StringWriter();
 		e.printStackTrace(new PrintWriter(sw));
-		response += sw.toString();
-		return response;
+		return  sw.toString();
 	}
 	
 	public String[][] listToStringArray(List<String[]> list) {
@@ -33,5 +41,11 @@ public class Utility {
 			pointsDouble[i++] = point;
 		}
 		return pointsDouble;
+	}
+	
+	public SatellitePosition getSatellitesStorageProperties() {
+		String satellitesJson = environment.getProperty("satellites.json");
+		SatellitePosition satellitePosition = new Gson().fromJson(satellitesJson, SatellitePosition.class);
+		return satellitePosition;
 	}
 }

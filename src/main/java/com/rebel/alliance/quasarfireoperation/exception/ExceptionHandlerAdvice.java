@@ -2,7 +2,6 @@ package com.rebel.alliance.quasarfireoperation.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -22,9 +21,8 @@ public class ExceptionHandlerAdvice {
 	
 	private static Logger logger = LoggerFactory.getLogger(ExceptionHandlerAdvice.class);
 	
-	Utility utilities;
+	private Utility utilities;
 	
-	@Autowired
 	public ExceptionHandlerAdvice(Utility utilities) {
 		this.utilities = utilities;
 	}
@@ -50,6 +48,7 @@ public class ExceptionHandlerAdvice {
 	}
 	
 	@ExceptionHandler({
+		FieldInvalidException.class,
 		HttpRequestMethodNotSupportedException.class, 
 		MethodArgumentNotValidException.class, 
 		MissingServletRequestParameterException.class,

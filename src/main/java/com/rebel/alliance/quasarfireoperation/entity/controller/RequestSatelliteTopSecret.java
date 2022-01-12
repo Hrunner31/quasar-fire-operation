@@ -1,20 +1,19 @@
 package com.rebel.alliance.quasarfireoperation.entity.controller;
 
-import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class RequestSatelliteTopSecret {
+public class RequestSatelliteTopSecret implements Serializable {
 	
-	@NotBlank(message = "Distancia del satelite es obligatorio")
+	private static final long serialVersionUID = -2220761955073912710L;
+
 	private float distance;
 	
-	@NotBlank(message = "Nombre del satelite es obligatorio")
 	private String name;
 	
-	@NotBlank(message = "Mensaje del satelite es obligatorio")
 	private String[] message;
 }

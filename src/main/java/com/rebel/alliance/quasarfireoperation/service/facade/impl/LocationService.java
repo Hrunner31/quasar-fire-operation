@@ -1,5 +1,6 @@
 package com.rebel.alliance.quasarfireoperation.service.facade.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.math3.fitting.leastsquares.LevenbergMarquardtOptimizer;
@@ -10,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.lemmingapex.trilateration.NonLinearLeastSquaresSolver;
 import com.lemmingapex.trilateration.TrilaterationFunction;
-import com.rebel.alliance.quasarfireoperation.entity.service.ArtificialSatellite;
 import com.rebel.alliance.quasarfireoperation.entity.service.Position;
+import com.rebel.alliance.quasarfireoperation.entity.service.Satellite;
 import com.rebel.alliance.quasarfireoperation.entity.service.SatellitePosition;
 import com.rebel.alliance.quasarfireoperation.exception.LocationException;
 import com.rebel.alliance.quasarfireoperation.service.facade.ILocationService;
@@ -34,6 +35,9 @@ public class LocationService implements ILocationService {
 	public Position getLocation(float... distances) {
 		double[] position = { 0, 0 };
 		double[][] positions = getPositions();
+		if(positions.length != distances.length) {
+		  throw new LocationException(Constant.SATELLITE_POSITION_DISTANCE_ERROR);
+		}
 		double[] doubleDistances = this.utility.floatToDoubleArray(distances);
 		TrilaterationFunction trilaterationFunction = new TrilaterationFunction(positions, doubleDistances);
 		NonLinearLeastSquaresSolver positionSolve = new NonLinearLeastSquaresSolver(trilaterationFunction,
@@ -49,10 +53,11 @@ public class LocationService implements ILocationService {
 		if (satellitePosition == null) {
 			throw new LocationException(Constant.SATELLITE_POSITION_ERROR);
 		} else {
-			List<ArtificialSatellite> satelliteList = satellitePosition.getPositions();
+			Collections.sort(satellitePosition.getSatellites(), (x, y) -> x.getName().compareToIgnoreCase(y.getName()));
+			List<Satellite> satelliteList = satellitePosition.getSatellites();
 			if (satelliteList != null) {
 				int satelliteNumber = satelliteList.size();
-				if (satelliteNumber < 3) {
+				if (satelliteNumber < Constant.SATELLITE_NUMBERS) {
 					throw new LocationException(Constant.SATELLITE_MIN_POSITION_ERROR);
 				}
 				positionMatrix = setPositionsMatrix(satelliteNumber, Constant.POSITION_COLUMN, positionMatrix, satelliteList);
@@ -64,7 +69,7 @@ public class LocationService implements ILocationService {
 	}
 
 	private double[][] setPositionsMatrix(int rowSize, int columnSize, double[][] positionMatrix,
-			List<ArtificialSatellite> satelliteList) {
+			List<Satellite> satelliteList) {
 		positionMatrix = new double[rowSize][Constant.POSITION_COLUMN];
 		for (int i = 0; i < rowSize; i++) {
 			int j = 0;
