@@ -58,10 +58,10 @@ public class SecretSpaceMissionService implements ISecretSpaceMissionService {
 		String message = "";
 		if (satelliteList.getSatellites() != null) {
 			float[] distances = satelliteList.getDistances();
-			if (distances.length < 3) {
+			if (distances.length < Constant.SATELLITE_NUMBERS ) {
 				throw new LocationException(Constant.DISTANNCES_ERROR);
 			}
-			if (satelliteList.getMessage().size() < 3) {
+			if (satelliteList.getMessage().size() < Constant.SATELLITE_NUMBERS ) {
 				throw new MessageException(Constant.MESSAGE_ERROR);
 			}
 			// enviar informacion a los servicio de message y location

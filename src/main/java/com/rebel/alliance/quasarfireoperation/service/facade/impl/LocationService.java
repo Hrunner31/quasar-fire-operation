@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.math3.fitting.leastsquares.LevenbergMarquardtOptimizer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +22,9 @@ import com.rebel.alliance.quasarfireoperation.utilities.Utility;
 public class LocationService implements ILocationService {
 
 	private Environment environment;
+	
 	private Utility utility;
 
-	@Autowired
 	public LocationService(Environment environment, Utility utility) {
 		this.environment = environment;
 		this.utility = utility;

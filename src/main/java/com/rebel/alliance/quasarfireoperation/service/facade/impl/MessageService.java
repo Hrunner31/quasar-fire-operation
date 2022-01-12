@@ -29,8 +29,10 @@ public class MessageService implements IMessageService {
 			}
 			row++;
 		}
-		if (column == 0 && row < 3 ) {
+		if (column == 0 || row < Constant.SATELLITE_NUMBERS ) {
 			throw new MessageException(Constant.MESSAGE_ERROR);
+		} else if (row > Constant.SATELLITE_NUMBERS) {
+			throw new MessageException(Constant.MESSAGE_LIST_ERROR);
 		}
 		List<Integer> matrizSize = Arrays.asList(row, column);
 		return matrizSize;
@@ -62,7 +64,7 @@ public class MessageService implements IMessageService {
         StringBuilder mensaje = new StringBuilder(); 
         while(column < sizeColumna) {
         	row = 0;
-			while (row < 3) {
+			while (row < Constant.SATELLITE_NUMBERS) {
 				if (matrixMsg[row][column] != "") {
 					if (column == (sizeColumna - 1)) {
 						mensaje.append(matrixMsg[row][column]);

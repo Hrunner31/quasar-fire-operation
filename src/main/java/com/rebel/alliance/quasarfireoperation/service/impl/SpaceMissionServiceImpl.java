@@ -1,6 +1,5 @@
 package com.rebel.alliance.quasarfireoperation.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
@@ -15,7 +14,6 @@ public class SpaceMissionServiceImpl implements ISpaceMissionService{
 	
 	SecretSpaceMissionService secretSpaceMissionService;
 	
-	@Autowired
 	public SpaceMissionServiceImpl(SecretSpaceMissionService secretSpaceMissionService) {
 		this.secretSpaceMissionService = secretSpaceMissionService;
 	}

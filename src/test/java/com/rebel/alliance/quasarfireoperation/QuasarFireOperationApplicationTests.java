@@ -10,4 +10,9 @@ class QuasarFireOperationApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void getMessageWith3Satellites() {
+		
+	}
+
 }

@@ -9,6 +9,7 @@ public class Constant {
 	public static final String INVALID_REQUEST = "Petición inválida - {}";
 	public static final String DISTANNCES_ERROR = "Número de distancias insuficientes para calcular la posición de la nave";
 	public static final String MESSAGE_ERROR = "Número de mensajes insuficientes para construir el mensaje de la nave";
+	public static final String MESSAGE_LIST_ERROR = "Número de mensajes es diferente al número de satelites";
 	
 	public static final String SATELLITE_ERROR = "No se encontró información de los satelites";
 	public static final String SATELLITE_POSITION_ERROR = "No se encontró información de la posición de los satelites";
