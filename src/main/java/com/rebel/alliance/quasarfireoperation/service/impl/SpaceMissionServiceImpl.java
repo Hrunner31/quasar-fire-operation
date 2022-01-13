@@ -7,14 +7,14 @@ import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatellite
 import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
 import com.rebel.alliance.quasarfireoperation.entity.service.Ship;
 import com.rebel.alliance.quasarfireoperation.service.ISpaceMissionService;
-import com.rebel.alliance.quasarfireoperation.service.facade.impl.SecretSpaceMissionService;
+import com.rebel.alliance.quasarfireoperation.service.facade.ISecretSpaceMissionService;
 
 @Service
 public class SpaceMissionServiceImpl implements ISpaceMissionService{
 	
-	SecretSpaceMissionService secretSpaceMissionService;
+	ISecretSpaceMissionService secretSpaceMissionService;
 	
-	public SpaceMissionServiceImpl(SecretSpaceMissionService secretSpaceMissionService) {
+	public SpaceMissionServiceImpl(ISecretSpaceMissionService secretSpaceMissionService) {
 		this.secretSpaceMissionService = secretSpaceMissionService;
 	}
 

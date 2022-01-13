@@ -9,17 +9,36 @@ import com.rebel.alliance.quasarfireoperation.exception.MessageException;
 import com.rebel.alliance.quasarfireoperation.service.facade.IMessageService;
 import com.rebel.alliance.quasarfireoperation.utilities.Constant;
 
+/**
+ * La Clase MessageService es la encargada de obtener el mensaje enviado por la nave rebelde a traves de los 
+ * satelites
+ * @author @author H. Leonardo A. Corredor
+ *
+ */
 @Service
 public class MessageService implements IMessageService {
 
+	/**
+	 * El método getMessage es el orquestador de realizar las validaciones del tamaño de los arrays de los mensajes
+	 * de los satelites, adicional se encarga de hacer el llamado para construir la matriz para obtener el mensaje de 
+	 * la nave rebelde
+	 * @param message: Array de arrays mensajes de los diferentes satelites
+	 * @return String: Mensaje filtrado
+	 */
 	@Override
 	public String getMessage(String[]... message) {
 		List<Integer> matrizSize = validateArraySize(message);
 		String[][] matrixMsg = buildMatrix(matrizSize, message);
-		String secretMessage = buildMessage(matrixMsg, matrizSize.get(0));
+		String secretMessage = buildMessage(matrixMsg);
 		return secretMessage;
 	}
 	
+	/**
+	 * El método validateArraySize se encarga de validar el número de columnas y de filas que debe tener
+	 * la matriz para poder obtener el mensaje de la nave rebelde
+	 * @param message: Array de arrays mensajes de los diferentes satelites
+	 * @return List<Integer>: Lista con el tamaño de las filas y columnas para construir la matriz
+	 */
 	private List<Integer> validateArraySize(String[]... message) {
 		int row = 0;
 		int column = 0;
@@ -38,6 +57,12 @@ public class MessageService implements IMessageService {
 		return matrizSize;
 	}
 
+	/**
+	 * El método buildMatrix se encarga de construir la matriz de los mensajes de los satelites
+	 * @param matrizSize: Lista con el tamaño de las filas y columnas para construir la matriz
+	 * @param message: Array de arrays mensajes de los diferentes satelites
+	 * @return String[][]: Matriz de mensajes
+	 */
 	private String[][] buildMatrix(List<Integer> matrizSize, String[]... message) {
 		int columnsMatrix = matrizSize.get(1);
 		String[][] matrixMsg = new String[matrizSize.get(0)][matrizSize.get(1)]; // Se asigna las dimensiones de la matriz
@@ -57,7 +82,12 @@ public class MessageService implements IMessageService {
 		return matrixMsg;
 	}
 
-	private String buildMessage(String[][] matrixMsg, int rowSizeMatrix) {
+	/**
+	 * El método buildMessage se encarga de construir el mensaje enviado por la nave rebelde
+	 * @param matrixMsg: Matriz con los mensajes para realizar el filtrado de desfase y obtener el mensaje enviado
+	 * @return String: Mensaje sin desfase de la nave rebelde
+	 */
+	private String buildMessage(String[][] matrixMsg) {
 		int column = 0;
         int row = 0;
         int sizeColumna = matrixMsg[row].length;

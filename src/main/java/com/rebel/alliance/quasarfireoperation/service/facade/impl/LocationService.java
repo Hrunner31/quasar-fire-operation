@@ -18,6 +18,12 @@ import com.rebel.alliance.quasarfireoperation.service.facade.ILocationService;
 import com.rebel.alliance.quasarfireoperation.utilities.Constant;
 import com.rebel.alliance.quasarfireoperation.utilities.Utility;
 
+/**
+ * La clase LocationService es la encargada de validar que las distancias y las posiciones de los satelites sean
+ * iguales, tambien se encarga de realizar el calculo de las coordenadas de la posición de la nave rebelde
+ * @author H. Leonardo A. Corredor
+ *
+ */
 @Service
 public class LocationService implements ILocationService {
 
@@ -30,6 +36,11 @@ public class LocationService implements ILocationService {
 		this.utility = utility;
 	}
 
+	/** El método getLocation es el encargado de orquestar la logica para el calculo de las coordenadas 
+	 * de la posición de la nave rebelde
+	 * @param distances: Lista de la distancia de cada uno de los satelites
+	 * @return Position: Coordenadas del eje X y Y de la nave rebelde
+	 */
 	@Override
 	public Position getLocation(float... distances) {
 		double[] position = { 0, 0 };
@@ -45,6 +56,11 @@ public class LocationService implements ILocationService {
 		return new Position(position[0], position[1]);
 	}
 
+	/**
+	 * El método getPositions está encargado de orquestar la validación de que haya algún satelite almacenado en
+	 * en la aplicación y de hacer el llamado para la construcción de la matriz de posiciones
+	 * @return double[][]: Matriz de posiciones
+	 */
 	private double[][] getPositions() {
 		String satellitesJson = environment.getProperty("satellites.json");
 		SatellitePosition satellitePosition = new Gson().fromJson(satellitesJson, SatellitePosition.class);
@@ -67,6 +83,14 @@ public class LocationService implements ILocationService {
 		return positionMatrix;
 	}
 
+	/**
+	 * El método setPositionsMatrix se encarga de construir la matriz de acuerdo a las posiciones de los satelites
+	 * @param rowSize: Número de posiciones que va a tener las filas de la matriz
+	 * @param columnSize: Número de posiciones que va a tener las filas de la matriz
+	 * @param positionMatrix: Matriz de posiciones en X y Y
+	 * @param satelliteList: Lista de satelites almacenados en la aplicación
+	 * @return double[][]: Matriz de posiciones
+	 */
 	private double[][] setPositionsMatrix(int rowSize, int columnSize, double[][] positionMatrix,
 			List<Satellite> satelliteList) {
 		positionMatrix = new double[rowSize][Constant.POSITION_COLUMN];

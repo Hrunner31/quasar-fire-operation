@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteListTopSecret;
 import com.rebel.alliance.quasarfireoperation.entity.controller.RequestSatelliteTopSecretSplit;
 import com.rebel.alliance.quasarfireoperation.entity.controller.ResponseShipTopSecret;
-import com.rebel.alliance.quasarfireoperation.service.impl.SpaceMissionServiceImpl;
+import com.rebel.alliance.quasarfireoperation.service.ISpaceMissionService;
 import com.rebel.alliance.quasarfireoperation.utilities.Constant;
 
 @RestController
 @RequestMapping(path = "${api.version}")
 public class SpaceMissionController {
 
-	private SpaceMissionServiceImpl spaceMissionService;
+	private ISpaceMissionService spaceMissionService;
 
-	public SpaceMissionController(SpaceMissionServiceImpl spaceMissionService) {
+	public SpaceMissionController(ISpaceMissionService spaceMissionService) {
 		this.spaceMissionService = spaceMissionService;
 	}
 
