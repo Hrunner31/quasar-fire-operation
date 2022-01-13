@@ -59,3 +59,14 @@ Para la publicación del API se utilizó la nube de AWS, que nos brinda un servi
 - Si se va a utilizar un IDE diferente a STS (Spring Tools Suite) sebe tener en cuenta el plugin de Spring Boot para la compilación de este proyecto.
 - Luego de ejecutar el proyecto en local puede dirigirse a está URL: http://localhost:8081/swagger-ui/index.html donde se encuentra la especificación de los servicios y la forma como se deben consumir.
 ![SwaggerImage](https://github.com/Hrunner31/quasar-fire-operation/blob/dev/documentation/img/api-swagger-img.png?raw=true)
+
+## Imágenes de pruebas funcionales - caja negra AWS
+**POST**
+Endpoint: http://quasarfireoperation-env.eba-8iabjmhj.us-east-1.elasticbeanstalk.com/api/v1/topsecret/
+![Postman test 1](https://github.com/Hrunner31/quasar-fire-operation/blob/dev/documentation/img/testPostman-img.png?raw=true)
+**POST**
+Endpoint: http://quasarfireoperation-env.eba-8iabjmhj.us-east-1.elasticbeanstalk.com/api/v1/topsecret_split/kenobi
+![Postman test 2](https://github.com/Hrunner31/quasar-fire-operation/blob/dev/documentation/img/testPostman2-img.png?raw=true)
+**GET**
+Endpoint: http://quasarfireoperation-env.eba-8iabjmhj.us-east-1.elasticbeanstalk.com/api/v1/topsecret_split/
+![Postman test 2](https://github.com/Hrunner31/quasar-fire-operation/blob/dev/documentation/img/testPostman3-img.png?raw=true)
