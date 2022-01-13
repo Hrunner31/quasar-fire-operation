@@ -1,3 +1,4 @@
+
 # OPERACIÓN FUEGO DE QUASAR
 
 Proyecto creado en lenguaje **Java version 8** usando como Framework de desarrollo **Spring Boot version 2.6.2**.
@@ -53,3 +54,8 @@ Para la publicación del API se utilizó la nube de AWS, que nos brinda un servi
 .m2\repository\org\projectlombok\lombok y ejecutar el jar de lombok, colocando el directorio donde se encuentra el IDE.
 
  - Si se desea calcular las coordenadas de posición de la nave rebelde, con más de los tres satélites solicitados en la prueba, debe ir al archivo properties de la aplicación y agregar los satélites a dicho archivo conservando la estructura que este tiene. Adicional, en la clase Constant del paquete de utilidades realizar el cambio de la siguiente constante **SATELLITE_NUMBERS**, por el valor del número de satélites que tiene la lista del archivo properties.
+
+- Para ejecutar el proyecto en local debe tener instalado Java 8 y maven.
+- Si se va a utilizar un IDE diferente a STS (Spring Tools Suite) sebe tener en cuenta el plugin de Spring Boot para la compilación de este proyecto.
+- Luego de ejecutar el proyecto en local puede dirigirse a está URL: http://localhost:8081/swagger-ui/index.html donde se encuentra la especificación de los servicios y la forma como se deben consumir.
+![SwaggerImage](https://github.com/Hrunner31/quasar-fire-operation/blob/dev/documentation/img/api-swagger-img.png?raw=true)
